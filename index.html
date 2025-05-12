@@ -112,7 +112,7 @@
     </div>
     <!-- Модальное окно секретного раздела -->
     <div id="secret-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 300; justify-content: center; align-items: center;">
-        <div id="secret-modal-content" style="background: #fff8f0; padding: 1.2em 1em; border-radius: 18px; box-shadow: 0 2px 32px rgba(184,92,92,0.18); width: 96vw; max-width: 380px; max-height: 92vh; overflow-y: auto; text-align: center; position: relative; display: flex; flex-direction: column; align-items: center;">
+                <div id="secret-modal-content" style="background: #fff8f0; padding: 1.2em 1em; border-radius: 18px; box-shadow: 0 2px 32px rgba(184,92,92,0.18); width: 96vw; max-width: 380px; max-height: 92vh; overflow-y: auto; text-align: center; position: relative; display: flex; flex-direction: column; align-items: center;">
             <style>
             @media (max-width: 600px) {
                 #secret-modal-content { padding: 0.7em 0.3em !important; border-radius: 10px !important; max-width: 98vw !important; }
@@ -120,6 +120,15 @@
                 #secret-modal-content p { font-size: 0.95em !important; }
                 #fortune-btn { width: 48px !important; height: 48px !important; font-size: 1em !important; }
                 #fortune-result { font-size: 1em !important; }
+            }
+            </style>
+            <button id="close-secret-modal" style="position: absolute; top: 10px; right: 16px; background: none; border: none; font-size: 1.5em; color: #b85c5c; cursor: pointer;">×</button>
+            <h2 style="color: #b85c5c; margin-bottom: 0.7em; font-size: 1.1em;">Секретный сюрприз!</h2>
+            <p style="font-size: 1em; margin-bottom: 1em; color: #7d5a5a;">Нажмите на кнопку и получите индивидуальное весёлое задание 🎉</p>
+            <button id="fortune-btn" style="background: linear-gradient(90deg,#b85c5c,#f9e6ff); color: #fff; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.3em; font-weight: bold; box-shadow: 0 2px 12px rgba(184,92,92,0.12); cursor: pointer; margin-bottom: 1em; display: flex; align-items: center; justify-content: center; transition: background 0.3s;"><span style="font-size: 1.1em; margin-right: 0.2em;">🎁</span></button>
+            <div id="fortune-result" style="font-size: 1.1em; color: #a13e3e; margin: 1em 0 0.5em 0; min-height: 2em; font-weight: bold; opacity: 0; transition: opacity 0.6s;"></div>
+        </div>
+
             }
             </style>
             <button id="close-secret-modal" style="position: absolute; top: 10px; right: 16px; background: none; border: none; font-size: 1.5em; color: #b85c5c; cursor: pointer;">×</button>
