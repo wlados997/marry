@@ -142,78 +142,52 @@ if (secretBtnMove) {
 }
 
 // --- Колесо фортуны с анимацией и однократным вращением ---
-const fortuneBtn = document.getElementById('fortune-btn');
-const fortuneWheel = document.getElementById('fortune-wheel');
-
 const fortuneTasks = [
-  { lines: ['Селфи', 'с невестой'], radius: 110, fontSize: 12, lineHeight: 26 },
-  { lines: ['Танец', 'с женихом'], radius: 110, fontSize: 12, lineHeight: 18 },
-  { lines: ['Необычное', 'со стола'], radius: 110, fontSize: 12, lineHeight: 18 },
-  { lines: ['Сердце', 'на салфетке'], radius: 110, fontSize: 12, lineHeight: 18 },
-  { lines: ['Спой песню'], radius: 110, fontSize: 12, lineHeight: 18 },
-  { lines: ['Фото с', '3 гостями'], radius: 110, fontSize: 12, lineHeight: 26 },
-  { lines: ['Бутылка', 'со стола'], radius: 110, fontSize: 12, lineHeight: 18 },
-  { lines: ['Изобрази', '«любовь»'], radius: 110, fontSize: 12, lineHeight: 18 },
-  { lines: ['Рифма к', '«свадьба»'], radius: 110, fontSize: 12, lineHeight: 18 },
-  { lines: ['Танец с', 'тестем/тёщей'], radius: 110, fontSize: 12, lineHeight: 26 }
+  'Селфи с невестой',
+  'Танец с женихом',
+  'Необычное со стола',
+  'Сердце на салфетке',
+  'Спой песню',
+  'Фото с 3 гостями',
+  'Бутылка со стола',
+  'Изобрази «любовь»',
+  'Рифма к «свадьба»',
+  'Танец с тестем/тёщей'
 ];
 
-// Функция для автоматического переноса длинных надписей на две строки
-function splitToTwoLines(text) {
-    const words = text.split(' ');
-    if (words.length <= 2) return [text];
-    const mid = Math.ceil(words.length / 2);
-    return [words.slice(0, mid).join(' '), words.slice(mid).join(' ')];
-}
+const fortuneBtn = document.getElementById('fortune-btn');
+const fortuneResult = document.getElementById('fortune-result');
 
-let fortuneSpun = false;
-if (fortuneBtn && fortuneWheel) {
+if (fortuneBtn && fortuneResult) {
     fortuneBtn.addEventListener('click', () => {
-        if (fortuneSpun) return;
-        fortuneSpun = true;
+        if (fortuneBtn.disabled) return;
         fortuneBtn.disabled = true;
         fortuneBtn.style.opacity = '0.5';
-        const n = fortuneTasks.length;
-        // Случайный сектор (для расчёта угла)
-        const sector = Math.floor(Math.random() * n);
-        const baseTurns = 5 + Math.random() * 3; // 5-8 оборотов
-        const finalAngle = - (360/n)*sector;
-        const totalRotate = baseTurns*360 + finalAngle;
-        // Анимация вращения
-        const shake = () => {
-            fortuneWheel.style.transition = 'transform 0.12s cubic-bezier(.5,1.7,.7,1)';
-            fortuneWheel.style.transform = `rotate(${totalRotate + 4}deg)`;
-            setTimeout(() => {
-                fortuneWheel.style.transform = `rotate(${totalRotate - 3}deg)`;
-                setTimeout(() => {
-                    fortuneWheel.style.transform = `rotate(${totalRotate}deg)`;
-                    setTimeout(() => {
-                        const style = window.getComputedStyle(fortuneWheel);
-                        const transform = style.transform || style.webkitTransform;
-                        let angle = 0;
-                        if (transform && transform !== 'none') {
-                            const values = transform.split('(')[1].split(')')[0].split(',');
-                            const a = parseFloat(values[0]);
-                            const b = parseFloat(values[1]);
-                            angle = Math.atan2(b, a) * (180/Math.PI);
-                        }
-                        if (angle < 0) angle += 360;
-                        const sectorAngle = 360 / n;
-                        let sectorIndex = Math.floor(((angle + sectorAngle/2) % 360) / sectorAngle);
-                        if (sectorIndex < 0) sectorIndex += n;
-                        const task = fortuneTasks[sectorIndex].lines.join(' ');
-                        // localStorage.setItem('fortune_result', task); // если нужно сохранять
-                    }, 120);
-                }, 90);
-            }, 120);
-        };
-        fortuneWheel.style.transition = 'transform 4.2s cubic-bezier(.15,.85,.35,1)';
-        fortuneWheel.style.transform = `rotate(${totalRotate}deg)`;
+        const idx = Math.floor(Math.random() * fortuneTasks.length);
+        fortuneResult.style.opacity = 0;
         setTimeout(() => {
-            shake();
-        }, 4200);
+            fortuneResult.textContent = fortuneTasks[idx];
+            fortuneResult.style.opacity = 1;
+            // Сохраняем результат в localStorage
+            localStorage.setItem('secret_fortune_result', fortuneTasks[idx]);
+            // Подставляем в скрытое поле основной формы, если оно есть
+            const mainField = document.getElementById('secret-fortune-main-result');
+            if (mainField) mainField.value = fortuneTasks[idx];
+        }, 300);
     });
 }
+
+// При загрузке страницы подставляем результат в форму, если он уже был
+(function setSecretFortuneToForm() {
+    const mainField = document.getElementById('secret-fortune-main-result');
+    if (!mainField) return;
+    const result = localStorage.getItem('secret_fortune_result');
+    if (result) {
+        mainField.value = result;
+    } else {
+        mainField.value = 'Не получал';
+    }
+})();
 
 // Перерисовываю колесо для маленького размера с индивидуальными настройками
 if (fortuneWheel) {

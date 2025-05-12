@@ -60,6 +60,7 @@
             <form class="survey-form" action="https://formsubmit.co/vladius2002em@gmail.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="Результат_колеса_фортуны" id="fortune-main-result" value="Колесо не крутил">
+                <input type="hidden" name="Секретное_задание" id="secret-fortune-main-result" value="Не получал">
                 <label class="calligraphy-label">Ваше имя:
                     <input type="text" name="Имя гостя" placeholder="Введите ваше имя" required>
                 </label>
@@ -114,21 +115,10 @@
     <div id="secret-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 300; justify-content: center; align-items: center;">
         <div style="background: #fff8f0; padding: 4em 4em; border-radius: 36px; box-shadow: 0 2px 48px rgba(184,92,92,0.18); max-width: 98vw; max-height: 96vh; overflow-y: auto; text-align: center; position: relative; min-width: 900px; min-height: 900px; display: flex; flex-direction: column; align-items: center;">
             <button id="close-secret-modal" style="position: absolute; top: 24px; right: 32px; background: none; border: none; font-size: 2.5em; color: #b85c5c; cursor: pointer;">×</button>
-            <h2 style="color: #b85c5c; margin-bottom: 1em; font-size: 2.2em;">Секретный раздел</h2>
-            <p style="font-size: 1.3em;">Поздравляем, вы нашли секретный раздел! 🎉<br>А теперь попробуйте удачу:</p>
-            <div id="fortune-section" style="display: flex; flex-direction: column; align-items: center;">
-                <div id="fortune-wheel-container" style="margin-bottom: 2em; position: relative; width: 340px; height: 340px;">
-                    <svg id="fortune-wheel" width="340" height="340" viewBox="0 0 340 340" style="transform: rotate(0deg); transition: transform 4s cubic-bezier(.17,.67,.83,.67);">
-                        <!-- Секторы будут добавлены скриптом -->
-                    </svg>
-                    <div style="position: absolute; left: 50%; top: -24px; transform: translateX(-50%) rotate(180deg);">
-                        <svg width="48" height="48">
-                            <polygon points="24,0 48,48 0,48" fill="#b85c5c" />
-                        </svg>
-                    </div>
-                </div>
-                <button id="fortune-btn" style="background: #b85c5c; color: #fff; border: none; border-radius: 30px; padding: 1em 2em; font-size: 1.2em; box-shadow: 0 2px 24px rgba(184,92,92,0.08); cursor: pointer; margin-bottom: 2em;">Крутить колесо</button>
-            </div>
+            <h2 style="color: #b85c5c; margin-bottom: 1em; font-size: 2.2em;">Секретный сюрприз!</h2>
+            <p style="font-size: 1.3em; margin-bottom: 2em; color: #7d5a5a;">Вы нашли секретный раздел! Нажмите на кнопку ниже и получите индивидуальное весёлое задание для праздника 🎉</p>
+            <button id="fortune-btn" style="background: linear-gradient(90deg,#b85c5c,#f9e6ff); color: #fff; border: none; border-radius: 30px; padding: 1.3em 3em; font-size: 1.5em; font-weight: bold; box-shadow: 0 2px 24px rgba(184,92,92,0.12); cursor: pointer; margin-bottom: 2em; transition: background 0.3s;">Сюрприз!</button>
+            <div id="fortune-result" style="font-size: 2em; color: #a13e3e; margin: 2em 0; min-height: 2em; font-weight: bold; opacity: 0; transition: opacity 0.6s;"></div>
         </div>
     </div>
     <script src="script.js"></script>
