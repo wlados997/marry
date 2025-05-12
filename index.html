@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="animated-bg fade-in"></div>
+    <!-- Свадебные иллюстрации на фоне -->
+    <img class="wedding-bg-img bouquet top-left" src="bouquet-svgrepo-com.svg" alt="Букет" />
+    <img class="wedding-bg-img calendar bottom-left" src="wedding-day-calendar-svgrepo-com.svg" alt="Календарь свадьбы" />
+    <img class="wedding-bg-img rings top-right" src="wedding-rings-wedding-svgrepo-com.svg" alt="Кольца" />
+    <img class="wedding-bg-img cake bottom-right" src="wedding-cake-svgrepo-com.svg" alt="Торт" />
+    <img class="wedding-bg-img bouquet mid-left" src="bouquet-svgrepo-com.svg" alt="Букет" />
+    <img class="wedding-bg-img rings mid-right" src="wedding-rings-wedding-svgrepo-com.svg" alt="Кольца" />
+    <img class="wedding-bg-img cake top-mid" src="wedding-cake-svgrepo-com.svg" alt="Торт" />
+    <img class="wedding-bg-img calendar mid-top-right" src="wedding-day-calendar-svgrepo-com.svg" alt="Календарь свадьбы" />
+    <img class="wedding-bg-img bouquet bottom-mid" src="bouquet-svgrepo-com.svg" alt="Букет" />
+    <img class="wedding-bg-img rings mid-bottom-left" src="wedding-rings-wedding-svgrepo-com.svg" alt="Кольца" />
+    <img class="wedding-bg-img cake mid-bottom-right" src="wedding-cake-svgrepo-com.svg" alt="Торт" />
+    <img class="wedding-bg-img calendar mid" src="wedding-day-calendar-svgrepo-com.svg" alt="Календарь свадьбы" />
+    <img class="wedding-bg-img bouquet left-center" src="bouquet-svgrepo-com.svg" alt="Букет" />
+    <img class="wedding-bg-img rings right-center" src="wedding-rings-wedding-svgrepo-com.svg" alt="Кольца" />
+    <img class="wedding-bg-img cake top-left-corner" src="wedding-cake-svgrepo-com.svg" alt="Торт" />
+    <img class="wedding-bg-img calendar bottom-right-corner" src="wedding-day-calendar-svgrepo-com.svg" alt="Календарь свадьбы" />
+    <img class="wedding-bg-img bouquet top-center" src="bouquet-svgrepo-com.svg" alt="Букет" />
+    <img class="wedding-bg-img rings bottom-center" src="wedding-rings-wedding-svgrepo-com.svg" alt="Кольца" />
+    <img class="wedding-bg-img cake center" src="wedding-cake-svgrepo-com.svg" alt="Торт" />
+    <img class="wedding-bg-img calendar right-top" src="wedding-day-calendar-svgrepo-com.svg" alt="Календарь свадьбы" />
+    <audio id="bg-music" src="Ellie Goulding - Vincent.mp3" autoplay loop></audio>
+    <button id="music-toggle" style="position: fixed; bottom: 24px; right: 24px; z-index: 100; background: #fff8f0cc; color: #b85c5c; border: none; border-radius: 30px; padding: 0.7em 2em; font-size: 1.1em; box-shadow: 0 2px 12px rgba(184,92,92,0.08); cursor: pointer; transition: background 0.2s;">Включить музыку</button>
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Наверх">↑</button>
+    <div class="container fade-in">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Свадебный баннер" class="banner">
+        <h1>Дорогие друзья!</h1>
+        <p class="intro print-font">С радостью приглашаем вас на нашу свадьбу!</p>
+        <div class="names">Влад & Даша</div>
+        <div class="date">12 июля 2025 года</div>
+        <div class="countdown print-font" id="countdown"></div>
+        <div class="place">Новское ш., 10, корп. 1, Балашиха</div>
+        <div class="program">
+            <h2 class="print-font">Программа дня</h2>
+            <ul>
+                <li>15:00 — Сбор гостей</li>
+            </ul>
+        </div>
+        <div class="map-section">
+            <h2>Как добраться</h2>
+            <div class="map-container">
+                <iframe src="https://yandex.ru/map-widget/v1/?ll=38.051273%2C55.793353&z=16&mode=search&whatshere%5Bpoint%5D=38.051273%2C55.793353&whatshere%5Bzoom%5D=17" width="100%" height="250" frameborder="0"></iframe>
+            </div>
+            <div class="map-address">Новское ш., 10, корп. 1, Балашиха</div>
+        </div>
+        <div class="survey-section">
+            <h2>Опрос для гостей</h2>
+            <form class="survey-form" action="https://formsubmit.co/vladius2002em@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="Секретное_задание" id="secret-fortune-main-result" value="Не получал">
+                <label class="calligraphy-label">Ваше имя:
+                    <input type="text" name="Имя гостя" placeholder="Введите ваше имя" required>
+                </label>
+                <label class="calligraphy-label">Вы придёте на свадьбу?
+                    <select name="Присутствие" required>
+                        <option value="Да">Да</option>
+                        <option value="Нет">Нет</option>
+                        <option value="Пока не знаю">Пока не знаю</option>
+                    </select>
+                </label>
+                <label class="calligraphy-label">Хотите ли вы выступить с тостом или номером?
+                    <select name="Тост/номер">
+                        <option value="Нет">Нет</option>
+                        <option value="Тост">Тост</option>
+                        <option value="Номер">Номер</option>
+                        <option value="И тост, и номер">И тост, и номер</option>
+                    </select>
+                </label>
+                <label class="calligraphy-label">Ваши пожелания или комментарии:
+                    <input type="text" name="Пожелания" placeholder="Любые пожелания или вопросы">
+                </label>
+                <button type="submit" class="button">Отправить ответы</button>
+            </form>
+        </div>
+        <div class="faq-section">
+            <h2 class="print-font">Часто задаваемые вопросы</h2>
+            <div class="faq-list">
+                <div class="faq-item"><b>Какой дресс-код?</b><br>Праздничный, светлый, пастельные тона приветствуются.</div>
+                <div class="faq-item"><b>Где можно оставить машину?</b><br>На территории клуба есть бесплатная парковка.</div>
+                <div class="faq-item"><b>Что подарить?</b><br>Ваше присутствие — лучший подарок! Но если хотите, мы будем рады конвертам.</div>
+            </div>
+        </div>
+        <div class="gallery-section">
+            <h2>Галерея</h2>
+            <div class="gallery-list" style="display: flex; flex-direction: column; align-items: center; gap: 2em;">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #b85c5c; margin-bottom: 0.5em;">Молодожёны</div>
+                    <img src="your_image.jpg" alt="Молодожёны" class="fade-in" style="width: 240px; height: 240px; object-fit: cover; border-radius: 12px; box-shadow: 0 1px 8px rgba(184,92,92,0.08);">
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="font-size: 2em; font-weight: bold; color: #b85c5c; margin-bottom: 0.5em;">Невеста</div>
+                    <img src="dasha.jpg" alt="Невеста" class="fade-in" style="width: 240px; height: 240px; object-fit: cover; border-radius: 12px; box-shadow: 0 1px 8px rgba(184,92,92,0.08);">
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div id="secret-btn" style="font-size: 2em; font-weight: bold; color: #b85c5c; margin-bottom: 0.5em; position: relative; cursor: pointer;">Жених</div>
+                    <img src="vlad.jpg" alt="Жених" class="fade-in" style="width: 240px; height: 240px; object-fit: cover; border-radius: 12px; box-shadow: 0 1px 8px rgba(184,92,92,0.08);">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Модальное окно секретного раздела -->
+    <div id="secret-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 300; justify-content: center; align-items: center;">
+        <div id="secret-modal-content" style="background: #fff8f0; padding: 1.2em 1em; border-radius: 18px; box-shadow: 0 2px 32px rgba(184,92,92,0.18); width: 96vw; max-width: 380px; max-height: 92vh; overflow-y: auto; text-align: center; position: relative; display: flex; flex-direction: column; align-items: center;">
+            <style>
+            @media (max-width: 600px) {
+                #secret-modal-content { padding: 0.7em 0.3em !important; border-radius: 10px !important; max-width: 98vw !important; }
+                #secret-modal-content h2 { font-size: 1em !important; }
+                #secret-modal-content p { font-size: 0.95em !important; }
+                #fortune-btn { width: 48px !important; height: 48px !important; font-size: 1em !important; }
+                #fortune-result { font-size: 1em !important; }
+            }
+            </style>
+            <button id="close-secret-modal" style="position: absolute; top: 10px; right: 16px; background: none; border: none; font-size: 1.5em; color: #b85c5c; cursor: pointer;">×</button>
+            <h2 style="color: #b85c5c; margin-bottom: 0.7em; font-size: 1.1em;">Секретный сюрприз!</h2>
+            <p style="font-size: 1em; margin-bottom: 1em; color: #7d5a5a;">Нажмите на кнопку и получите индивидуальное весёлое задание 🎉</p>
+            <button id="fortune-btn" style="background: linear-gradient(90deg,#b85c5c,#f9e6ff); color: #fff; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.3em; font-weight: bold; box-shadow: 0 2px 12px rgba(184,92,92,0.12); cursor: pointer; margin-bottom: 1em; display: flex; align-items: center; justify-content: center; transition: background 0.3s;"><span style="font-size: 1.1em; margin-right: 0.2em;">🎁</span></button>
+            <div id="fortune-result" style="font-size: 1.1em; color: #a13e3e; margin: 1em 0 0.5em 0; min-height: 2em; font-weight: bold; opacity: 0; transition: opacity 0.6s;"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
